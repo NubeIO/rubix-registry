@@ -1,0 +1,2 @@
+tinydb==4.4.0
+shortuuid==1.0.1
