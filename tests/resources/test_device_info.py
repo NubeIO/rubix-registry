@@ -1,7 +1,7 @@
 import unittest
 
 from registry.models.model_device_info import DeviceInfoModel
-from registry.resources.resource_device_info import put_device_info, get_device_info
+from registry.resources.resource_device_info import put_device_info, get_device_info, get_device_info_dict
 
 
 class TestUtils(unittest.TestCase):
@@ -11,5 +11,5 @@ class TestUtils(unittest.TestCase):
         print(device_info)
 
     def test_get_device_info(self):
-        device_info = get_device_info()
+        device_info = get_device_info_dict()
         print(device_info)
