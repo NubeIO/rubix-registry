@@ -24,3 +24,7 @@ class DeviceInfoModel(ModelBase):
         self.time_zone: str = kwargs.get("time_zone", "Australia/Sydney")
         self.created_on: str = kwargs.get("created_on", datetime.utcnow().isoformat())
         self.updated_on: str = kwargs.get("updated_on", datetime.utcnow().isoformat())
+
+    @classmethod
+    def get_db_file(cls) -> str:
+        return 'device_info.json'

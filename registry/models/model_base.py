@@ -1,5 +1,10 @@
 import json
-from abc import ABC
+import os
+from abc import ABC, abstractmethod
+
+from tinydb import TinyDB
+
+from registry.constants import RUBIX_REGISTRY_DIR
 
 
 class ModelBase(ABC):
@@ -14,3 +19,12 @@ class ModelBase(ABC):
 
     def to_dict(self):
         return json.loads(self.serialize(pretty=False))
+
+    @classmethod
+    def get_db(cls) -> TinyDB:
+        return TinyDB(os.path.join(RUBIX_REGISTRY_DIR, cls.get_db_file()))
+
+    @classmethod
+    @abstractmethod
+    def get_db_file(cls) -> str:
+        pass
