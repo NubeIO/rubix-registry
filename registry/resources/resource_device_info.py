@@ -8,14 +8,17 @@ device_info_query = Query()
 
 
 def put_device_info(model: DeviceInfoModel):
-    return DeviceInfoModel.get_db().upsert(model.to_dict(), device_info_query.global_uuid.exists())
+    with DeviceInfoModel.get_db() as db:
+        return db.upsert(model.to_dict(), device_info_query.global_uuid.exists())
 
 
 def get_device_info() -> Union[DeviceInfoModel, None]:
-    device_info = DeviceInfoModel.get_db().search(device_info_query.global_uuid.exists())
-    return DeviceInfoModel(**device_info[0]) if device_info else None
+    with DeviceInfoModel.get_db() as db:
+        device_info = db.search(device_info_query.global_uuid.exists())
+        return DeviceInfoModel(**device_info[0]) if device_info else None
 
 
 def get_device_info_dict() -> dict:
-    device_info = DeviceInfoModel.get_db().search(device_info_query.global_uuid.exists())
-    return device_info[0] if device_info else None
+    with DeviceInfoModel.get_db() as db:
+        device_info = db.search(device_info_query.global_uuid.exists())
+        return device_info[0] if device_info else None
