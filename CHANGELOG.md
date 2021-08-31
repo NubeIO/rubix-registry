@@ -1,4 +1,7 @@
 # CHANGELOG
+## [v1.1.2](https://github.com/NubeIO/rubix-registry/tree/v1.1.2) (2020-08-31)
+- Fix: OSError: [Errno 24] Too many open files
+
 ## [v1.1.1](https://github.com/NubeIO/rubix-registry/tree/v1.1.1) (2020-06-21)
 - Fix: TinyDB use case issue
 
