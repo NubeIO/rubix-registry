@@ -14,6 +14,7 @@ class DeviceInfoModel(ModelBase):
         self.site_name: str = kwargs.get("site_name", "")
         self.device_id: str = kwargs.get("device_id", shortuuid.uuid())
         self.device_name: str = kwargs.get("device_name", "")
+        self.device_type: str = kwargs.get("device_type", "")
         self.site_address: str = kwargs.get("site_address", "")
         self.site_city: str = kwargs.get("site_city", "")
         self.site_state: str = kwargs.get("site_state", "")
